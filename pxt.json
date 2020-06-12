@@ -1,0 +1,26 @@
+{
+    "name": "MSP_Rover",
+    "version": "1.0.0",
+    "description": "Mars Scholar Project Rover Lab expansion board",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "neopixel": "github:kittenbot/pxt-neopixel#v0.6.13"
+    },
+    "files": [
+        "README.md",
+        "MSP_Rover.ts",
+        "MSP_Rover.cpp",
+        "ReceiverIR.cpp",
+        "ReceiverIR.h",
+        "RemoteIR.h",
+        "TransmitterIR.cpp",
+        "TransmitterIR.h",
+        "_locales/zh/MSP_Rover-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "preferredEditor": "tsprj"
+}
