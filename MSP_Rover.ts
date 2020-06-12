@@ -110,7 +110,7 @@ enum ColorEffect {
     Flash = 0x03
 }
 
-//% color="#EE6A50" icon="\uf4fb" block="MSP_Rover"
+//% color="#EE6A50" icon="\f4fb" block="MSP_Rover"
 namespace MSP_Rover {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -195,7 +195,7 @@ namespace MSP_Rover {
 
    
 
-    //% blockId=roverRGB_init block="MSP-Rover init" color="#EE6A50"  group="初始化 MSP-Rover"
+    //% blockId=roverRGB_init block="MSP_Rover init" color="#EE6A50"  group="初始化 MSP_Rover"
     export function RoverRGBInit(): void {
         let LED1 = rgb().range(0, 1);
         let LED2 = rgb().range(1, 1);
@@ -342,6 +342,15 @@ namespace MSP_Rover {
     export function SetBrightness(bright: number): void {
         neoStrip.setBrightness(bright);
     }
+	
+    //% blockId="roverbit_clearRGB" block="clear board RGB " group="板载RGB"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% subcategory="Rover_显示器"
+    export function ClearRgb(): void {
+        neoStrip.clear();
+        neoStrip.show();
+    }
+
 
     /**
      * Init RGB pixels mounted on roverbit
@@ -352,13 +361,6 @@ namespace MSP_Rover {
         RgbDisplay(rgb, rgb, rgbColor);
     }
 
-    //% blockId="roverbit_clearRGB" block="clear board RGB " group="板载RGB"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="Rover_显示器"
-    export function ClearRgb(): void {
-        neoStrip.clear();
-        neoStrip.show();
-    }
 
 	
     function i2cwrite(addr: number, reg: number, value: number) {
