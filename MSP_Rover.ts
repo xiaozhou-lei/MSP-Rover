@@ -292,6 +292,29 @@ namespace MSP_Rover {
      * TODO: describe your function here
      * @param value describe value here, eg: 5
      */
+
+
+
+
+
+    //% block="lcdoff"   group="LCD1602显示屏"  
+    //% subcategory="Rover_显示器"
+    export function I2cLcdOff(): void {
+        lcdcmd(0x08)
+    }
+
+    //% block="lcdclear"   group="LCD1602显示屏"  
+    //% subcategory="Rover_显示器"
+    export function I2cLcdClear(): void {
+        lcdcmd(0x01)
+    }
+
+    //% block="lcdon"   group="LCD1602显示屏"  
+    //% subcategory="Rover_显示器"
+    export function I2cLcdOn(): void {
+        lcdcmd(0x0C)
+    }
+	
     //% block="showString $s|col $x|row $y"   group="LCD1602显示屏"  
     //% subcategory="Rover_显示器"
     export function I2cLcdShowString(s: string, x: number, y: number): void {
@@ -307,7 +330,23 @@ namespace MSP_Rover {
             lcddat(s.charCodeAt(i))
         }
     }
-
+	
+    //% block="lcdlightoff"   group="LCD1602显示屏" 
+    //% subcategory="Rover_显示器" 
+    export function I2cLcdBacklightOff(): void {
+        BK = 0
+        lcdcmd(0)
+    }
+	
+	
+    //% block="lcdlighton"   group="LCD1602显示屏"  
+    //% subcategory="Rover_显示器"
+    export function I2cLcdBacklightOn(): void {
+        BK = 8
+        lcdcmd(0)
+    }
+	
+	
     //% block="LcdInit $addr" addr.defl="39"  group="LCD1602显示屏"  
     //% subcategory="Rover_显示器"
     export function I2cLcdInit(addr: number) {
@@ -325,41 +364,7 @@ namespace MSP_Rover {
         lcdcmd(0x06)
         lcdcmd(0x01)
     }
-
-    
-
-    //% block="lcdon"   group="LCD1602显示屏"  
-    //% subcategory="Rover_显示器"
-    export function I2cLcdOn(): void {
-        lcdcmd(0x0C)
-    }
-
-    //% block="lcdoff"   group="LCD1602显示屏"  
-    //% subcategory="Rover_显示器"
-    export function I2cLcdOff(): void {
-        lcdcmd(0x08)
-    }
-
-    //% block="lcdclear"   group="LCD1602显示屏"  
-    //% subcategory="Rover_显示器"
-    export function I2cLcdClear(): void {
-        lcdcmd(0x01)
-    }
-
-    //% block="lcdlighton"   group="LCD1602显示屏"  
-    //% subcategory="Rover_显示器"
-    export function I2cLcdBacklightOn(): void {
-        BK = 8
-        lcdcmd(0)
-    }
-
-    //% block="lcdlightoff"   group="LCD1602显示屏" 
-    //% subcategory="Rover_显示器" 
-    export function I2cLcdBacklightOff(): void {
-        BK = 0
-        lcdcmd(0)
-    }
-
+	
 	
     function i2cwrite(addr: number, reg: number, value: number) {
         let buf = pins.createBuffer(2)
