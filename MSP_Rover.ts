@@ -293,10 +293,6 @@ namespace MSP_Rover {
      * @param value describe value here, eg: 5
      */
 
-
-
-
-
     //% block="lcdoff"   group="LCD1602显示屏"  
     //% subcategory="Rover_显示器"
     export function I2cLcdOff(): void {
@@ -307,12 +303,6 @@ namespace MSP_Rover {
     //% subcategory="Rover_显示器"
     export function I2cLcdClear(): void {
         lcdcmd(0x01)
-    }
-
-    //% block="lcdon"   group="LCD1602显示屏"  
-    //% subcategory="Rover_显示器"
-    export function I2cLcdOn(): void {
-        lcdcmd(0x0C)
     }
 	
     //% block="showString $s|col $x|row $y"   group="LCD1602显示屏"  
@@ -329,6 +319,12 @@ namespace MSP_Rover {
         for (let i = 0; i < s.length; i++) {
             lcddat(s.charCodeAt(i))
         }
+    }
+	
+    //% block="lcdon"   group="LCD1602显示屏"  
+    //% subcategory="Rover_显示器"
+    export function I2cLcdOn(): void {
+        lcdcmd(0x0C)
     }
 	
     //% block="lcdlightoff"   group="LCD1602显示屏" 
