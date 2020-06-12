@@ -2,18 +2,18 @@
     "MSP_Rover.RoverRGBInit|block": "MSP_Rover初始化",
     "MSP_Rover.Servo|block": "舵机|%index|角度 %degree",
     "MSP_Rover.Servospeed|block": "舵机|%index|开始角度 %degree1|结束角度 %degree2|旋转速度 %speed",
-	"MSP_Rover.GetServoDegree|block": "获取舵机|%index|角度(0~180)",
-	"MSP_Rover.SportMotorRun|block": "运动电机|%index|速度 %speed",
-	"MSP_Rover.MotorRunDual|block": "运动电机|%motor1|速度 %speed1|%motor2|速度 %speed2",
-	"MSP_Rover.SportMotorRunDelay|block": "运动电机|%index|速度 %speed|延时 %delay|s",
-	"MSP_Rover.SportMotorStop|block": "停止运动电机|%index|",
+    "MSP_Rover.GetServoDegree|block": "获取舵机|%index|角度(0~180)",
+    "MSP_Rover.SportMotorRun|block": "运动电机|%index|速度 %speed",
+    "MSP_Rover.MotorRunDual|block": "运动电机|%motor1|速度 %speed1|%motor2|速度 %speed2",
+    "MSP_Rover.SportMotorRunDelay|block": "运动电机|%index|速度 %speed|延时 %delay|s",
+    "MSP_Rover.SportMotorStop|block": "停止运动电机|%index|",
     "MSP_Rover.MotorStopAll|block": "停止所有运动电机",
     
     "MSP_Rover.ClampMotorRun|block": "夹持电机|%index|速度 %speed",
     "MSP_Rover.ClampMotorRunDelay|block": "夹持电机|%index|速度 %speed|延时 %delay|s",
     "MSP_Rover.ClampMotorStop|block": "停止夹持电机|%index|",
 
-	"MSP_Rover.Ultrasonic|block": "引脚 %pin 读取RGB超声波距离(cm)",
+    "MSP_Rover.Ultrasonic|block": "引脚 %pin 读取RGB超声波距离(cm)",
     "RgbColors.Red|block": "红",
     "RgbColors.Orange|block": "橙",
     "RgbColors.Yellow|block": "黄",
@@ -56,7 +56,7 @@
     "MSP_Rover.DHT11Type.DHT11_humidity|block": "湿度(0~100)",
     "MSP_Rover.DHT11Type.DHT11_temperature_C|block": "摄氏温度(℃)",
     "MSP_Rover.DHT11Type.DHT11_temperature_F|block": "华氏温度(℉)",
-    "MSP_Rover.Dht11value|block": "DHT11选择引脚 %dht11pin|获取 %dht11type",
+    "MSP_Rover.Dht11value|block": "引脚 %dht11pin|获取 %dht11type",
 
     "MSP_Rover.ObloqInit|block": "物联网初始化",
     "MSP_Rover.MachineVisionInit|block": "AI视觉初始化"
