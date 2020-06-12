@@ -110,7 +110,7 @@ enum ColorEffect {
     Flash = 0x03
 }
 
-//% color="#EE6A50" icon="\uf4fb" block="MSP_Rover"
+//% color="#EE6A50" icon="\uf085" block="MSP_Rover"
 namespace MSP_Rover {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -288,25 +288,7 @@ namespace MSP_Rover {
         set(d)
         set(d << 4)
     }
-
-    //% block="LcdInit $addr" addr.defl="39"  group="LCD1602显示屏"  
-    //% subcategory="Rover_显示器"
-    export function I2cLcdInit(addr: number) {
-        i2cAddr = addr
-        BK = 8
-        RS = 0
-        lcdcmd(0x33)
-        basic.pause(5)
-        set(0x30)
-        basic.pause(5)
-        set(0x20)
-        basic.pause(5)
-        lcdcmd(0x28)
-        lcdcmd(0x0C)
-        lcdcmd(0x06)
-        lcdcmd(0x01)
-    }
-
+	
     /**
      * TODO: describe your function here
      * @param value describe value here, eg: 5
@@ -326,6 +308,26 @@ namespace MSP_Rover {
             lcddat(s.charCodeAt(i))
         }
     }
+
+    //% block="LcdInit $addr" addr.defl="39"  group="LCD1602显示屏"  
+    //% subcategory="Rover_显示器"
+    export function I2cLcdInit(addr: number) {
+        i2cAddr = addr
+        BK = 8
+        RS = 0
+        lcdcmd(0x33)
+        basic.pause(5)
+        set(0x30)
+        basic.pause(5)
+        set(0x20)
+        basic.pause(5)
+        lcdcmd(0x28)
+        lcdcmd(0x0C)
+        lcdcmd(0x06)
+        lcdcmd(0x01)
+    }
+
+    
 
     //% block="lcdon"   group="LCD1602显示屏"  
     //% subcategory="Rover_显示器"
@@ -649,7 +651,7 @@ namespace MSP_Rover {
 
     /**
      * Get RUS04 distance
-     * @param pin Microbit ultrasonic pin; eg: P2
+     * @param pin Microbit ultrasonic pin; eg: P0
     */
     //% blockId=roverbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm" group="RGB超声波传感器"
     //% weight=70
@@ -854,7 +856,7 @@ namespace MSP_Rover {
 
     /**
      * get soil moisture
-     * @param soilmoisturePin describe parameter here, eg: AnalogPin.P1    
+     * @param soilmoisturePin describe parameter here, eg: AnalogPin.P12    
      * 
      *  */
     //% blockId="readsoilmoisture" block="value of soil moisture(0~100) at pin %soilmoisturePin" group="土壤适度传感器"
@@ -877,7 +879,7 @@ namespace MSP_Rover {
 
     /**
      * get human Body
-     * @param bodyPin describe parameter here, eg: DigitalPin.P12  
+     * @param bodyPin describe parameter here, eg: DigitalPin.P16  
      * 
      *  */
 
@@ -919,7 +921,7 @@ namespace MSP_Rover {
 
     /**
      * initialises local variablesssss
-     *  @param pin describe parameter here, eg: IrPins.P1  
+     *  @param pin describe parameter here, eg: IrPins.P5  
      */
     //% blockId=ir_init 
     //% block="connect ir receiver to %pin" shim=MSP_Rover::init group="红外遥控器"
