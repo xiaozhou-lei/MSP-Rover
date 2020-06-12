@@ -216,7 +216,33 @@ namespace MSP_Rover {
         LED4.show();
     }
 
-    
+    //% blockId="roverbit_clearRGB" block="clear board RGB " group="板载RGB"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    //% subcategory="Rover_显示器"
+    export function ClearRgb(): void {
+        neoStrip.clear();
+        neoStrip.show();
+    }
+	
+    /**
+     * Init RGB pixels mounted on roverbit
+     */
+    //% blockId="roverbit_setRgbColor" block="set board RGB %rgb color %rgbColor" group="板载RGB"
+    //% subcategory="Rover_显示器"
+    export function SetColor(rgb: RGB, rgbColor: RgbColors): void {
+        RgbDisplay(rgb, rgb, rgbColor);
+    }
+	
+    /**
+     * Init RGB pixels mounted on roverbit
+     */
+    //% blockId="roverbit_setBright" block="set board RGB Brightness %bright" group="板载RGB"
+    //% subcategory="Rover_显示器"
+    export function SetBrightness(bright: number): void {
+        neoStrip.setBrightness(bright);
+    }
+	
+	
    /**
      * Init RGB pixels mounted on roverbit
      */
@@ -228,33 +254,6 @@ namespace MSP_Rover {
         }
         return neoStrip;
     }
-    /**
-     * Init RGB pixels mounted on roverbit
-     */
-    //% blockId="roverbit_setBright" block="set board RGB Brightness %bright" group="板载RGB"
-    //% subcategory="Rover_显示器"
-    export function SetBrightness(bright: number): void {
-        neoStrip.setBrightness(bright);
-    }
-	
-    //% blockId="roverbit_clearRGB" block="clear board RGB " group="板载RGB"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    //% subcategory="Rover_显示器"
-    export function ClearRgb(): void {
-        neoStrip.clear();
-        neoStrip.show();
-    }
-
-
-    /**
-     * Init RGB pixels mounted on roverbit
-     */
-    //% blockId="roverbit_setRgbColor" block="set board RGB %rgb color %rgbColor" group="板载RGB"
-    //% subcategory="Rover_显示器"
-    export function SetColor(rgb: RGB, rgbColor: RgbColors): void {
-        RgbDisplay(rgb, rgb, rgbColor);
-    }
-
 
     /**
 	 *  LCD 1602
@@ -856,7 +855,7 @@ namespace MSP_Rover {
 
     /**
      * get soil moisture
-     * @param soilmoisturePin describe parameter here, eg: AnalogPin.P12    
+     * @param soilmoisturePin describe parameter here, eg: AnalogPin.P1  
      * 
      *  */
     //% blockId="readsoilmoisture" block="value of soil moisture(0~100) at pin %soilmoisturePin" group="土壤适度传感器"
