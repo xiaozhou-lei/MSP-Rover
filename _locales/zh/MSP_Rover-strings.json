@@ -50,7 +50,7 @@
     "MSP_Rover.Init|block": "红外遥控器初始化引脚|%pin",
     "MSP_Rover.OnPressEvent|block": "当红外遥控器按键|%btn|按下",
 
-    "MSP_Rover.HumanBodySensor|block": " 引脚 %bodypin 是否检测到人体红外信号？ ",
+    "MSP_Rover.HumanBodySensor|block": " 引脚 %bodypin 检测到人体红外信号 ",
     "MSP_Rover.ReadSoilHumidity|block": " 引脚 %soilhumiditypin 获取的土壤湿度值(0~100)",
 
     "MSP_Rover.DHT11Type.DHT11_humidity|block": "湿度(0~100)",
