@@ -250,7 +250,7 @@ namespace MSP_Rover {
     //% subcategory="Rover_显示器"
     export function rgb(): neopixel.Strip {
         if (!neoStrip) {
-            neoStrip = neopixel.create(DigitalPin.P16, 10, NeoPixelMode.RGB)
+            neoStrip = neopixel.create(DigitalPin.P11, 10, NeoPixelMode.RGB)
         }
         return neoStrip;
     }
