@@ -83,9 +83,9 @@ enum RgbColors {
         //% block=indigo
         Indigo = 0x4b0082,
         //% block=violet
-        Violet = 0x8a2be2,
+        Violet = 0xCC3399,
         //% block=purple
-        Purple = 0xFF00FF,
+        Purple = 0x9933CC,
         //% block=white
         White = 0xFFFFFF,
         //% block=black
