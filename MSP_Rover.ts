@@ -69,7 +69,7 @@ enum RemoteButton {
 
 enum RgbColors {
         //% block=none
-        None = "none",
+        None = 99999999,
         //% block=red
         Red = 0xFF0000,
         //% block=orange
