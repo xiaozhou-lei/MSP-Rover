@@ -68,6 +68,8 @@ enum RemoteButton {
     }
 
 enum RgbColors {
+        //% block=none
+        None = "none",
         //% block=red
         Red = 0xFF0000,
         //% block=orange
@@ -696,7 +698,9 @@ namespace MSP_Rover {
 	  	rgb = RgbColors.Green;
              }else if(rgb == RgbColors.Green) {
 	     	rgb = RgbColors.Red;
-	     }
+	     }else if(rgb == RgbColors.None) {
+	     	return ;
+             }
 	    
         let start, end;
         if (!neoStrip) {
