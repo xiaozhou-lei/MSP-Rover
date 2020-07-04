@@ -238,6 +238,7 @@ namespace MSP_Rover {
      * @param bright [0-100] ; eg: 50
      */
     //% blockId="roverbit_setBright" block="set board RGB Brightness %bright" group="板载RGB"
+    //% bright.min=0 bright.max=100
     //% subcategory="Rover_显示器"
     export function SetBrightness(bright: number): void {
        if (!neoStrip) {
