@@ -145,7 +145,8 @@ namespace MSP_Rover {
     export enum Servos {
          S1 = 0x01,
          S2 = 0x02,
-        
+         S3 = 0x03,
+	 S4 = 0x04
     }
 
     export enum Motors {
