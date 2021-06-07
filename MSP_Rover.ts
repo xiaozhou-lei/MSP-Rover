@@ -659,7 +659,7 @@ namespace MSP_Rover {
 
     /**
      * Get RUS04 distance
-     * @param pin Microbit ultrasonic pin; eg: P0
+     * @param pin Microbit ultrasonic pin; eg: P15
     */
     //% blockId=roverbit_ultrasonic block="Read RgbUltrasonic Distance|pin %pin|cm" group="RGB超声波传感器"
     //% weight=70
