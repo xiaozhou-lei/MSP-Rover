@@ -150,12 +150,12 @@ namespace MSP_Rover {
     }
 
     export enum Motors {
-        M1 = 0x3,
-        M2 = 0x1,
-        M3 = 0x7,
-        M4 = 0x4,
-        M5 = 0x2,
-        M6 = 0x8,
+        M1 = 0x1,
+        M2 = 0x2,
+        M3 = 0x8,
+        M4 = 0x7,
+        M5 = 0x3,
+        M6 = 0x4,
     }
 
     export enum ClampMotors {
