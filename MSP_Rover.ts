@@ -629,7 +629,7 @@ namespace MSP_Rover {
 		setPwm(1, 2047, 3071);
 		setPwm(3, 3071, 4095);
 		degree = Math.abs(degree);
-        basic.pause(10240 * degree / 360);
+        basic.pause(10240 * degree / 360 / 8);
         MotorStopAll();
     }
 
