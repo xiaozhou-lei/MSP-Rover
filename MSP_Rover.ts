@@ -676,7 +676,7 @@ namespace MSP_Rover {
             basic.pause(10240 * (degree1 - degree2) / 360 / 8);
         } else {
             stopMotor(1); stopMotor(2);
-            basic.pause(10240 * (degree2 - degree1) / 360);
+            basic.pause(10240 * (degree2 - degree1) / 360 / 8);
         }
 
         MotorStopAll()
