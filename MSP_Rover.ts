@@ -615,6 +615,20 @@ namespace MSP_Rover {
             stopMotor(idx);
         }
     }
+	
+	//% blockId=stepper block="stepper" group="步进电机"
+    //% weight=78
+    //% blockGap=50
+    //% subcategory="Rover_执行器"
+    export function stepper(): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        setPwm(0, 0, 1023);
+		setPwm(2, 1023, 2047);
+		setPwm(1, 2047, 3071);
+		setPwm(3, 3071, 4095);
+    }
 
      /**
      * Execute single motors with delay
