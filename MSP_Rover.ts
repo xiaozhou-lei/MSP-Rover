@@ -615,17 +615,10 @@ namespace MSP_Rover {
             stopMotor(idx);
         }
     }
-	
-	//% blockId=stepper block="stepper |%index | degree %degree" group="步进电机"
-    //% weight=78
-    //% blockGap=50
-    //% subcategory="Rover_执行器"
-    export function stepper(index: Steppers, degree: number): void {
-        if (!initialized) {
-            initPCA9685()
-        }
+
+    function setStepper(index: number, dir: boolean): void {
         if (index == 0x01) {
-            if(degree > 0) {
+            if(dir) {
                 setPwm(0, 0, 1023);
                 setPwm(2, 1023, 2047);
                 setPwm(1, 2047, 3071);
@@ -637,7 +630,7 @@ namespace MSP_Rover {
                 setPwm(0, 3071, 4095); 
             }
         } else {
-            if(degree > 0) {
+            if(dir) {
                 setPwm(4, 0, 1023);
                 setPwm(6, 1023, 2047);
                 setPwm(5, 2047, 3071);
@@ -649,11 +642,46 @@ namespace MSP_Rover {
                 setPwm(4, 3071, 4095); 
             }
         }
-        
+    }
+
+	
+	//% blockId=stepper block="stepper |%index | degree %degree" group="步进电机"
+    //% weight=78
+    //% blockGap=50
+    //% subcategory="Rover_执行器"
+    export function stepper(index: Steppers, degree: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        setStepper(index, degree > 0);
 		degree = Math.abs(degree);
         basic.pause(10240 * degree / 360 / 8);
         MotorStopAll();
     }
+
+     //% blockId=robotbit_stepper_dual block="Dual Stepper(Degree) |M1 %degree1| M2 %degree2" group="步进电机"
+    //% weight=77
+    //% subcategory="Rover_执行器"
+    export function StepperDual(degree1: number, degree2: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        setStepper(1, degree1 > 0);
+        setStepper(2, degree2 > 0);
+        degree1 = Math.abs(degree1);
+        degree2 = Math.abs(degree2);
+        basic.pause(10240 * Math.min(degree1, degree2) / 360 / 8);
+        if (degree1 > degree2) {
+            stopMotor(3); stopMotor(4);
+            basic.pause(10240 * (degree1 - degree2) / 360 / 8);
+        } else {
+            stopMotor(1); stopMotor(2);
+            basic.pause(10240 * (degree2 - degree1) / 360);
+        }
+
+        MotorStopAll()
+    }
+
 
      /**
      * Execute single motors with delay
