@@ -616,11 +616,11 @@ namespace MSP_Rover {
         }
     }
 	
-	//% blockId=stepper block="stepper" group="步进电机"
+	//% blockId=stepper block="stepper degree %degree" group="步进电机"
     //% weight=78
     //% blockGap=50
     //% subcategory="Rover_执行器"
-    export function stepper(): void {
+    export function stepper(degree: number): void {
         if (!initialized) {
             initPCA9685()
         }
@@ -628,6 +628,9 @@ namespace MSP_Rover {
 		setPwm(2, 1023, 2047);
 		setPwm(1, 2047, 3071);
 		setPwm(3, 3071, 4095);
+		degree = Math.abs(degree);
+        basic.pause(10240 * degree / 360);
+        MotorStopAll();
     }
 
      /**
