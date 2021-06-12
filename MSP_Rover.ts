@@ -163,8 +163,8 @@ namespace MSP_Rover {
     }
 
     export enum Steppers {
-        STPM1 = 0x2,
-        STPM2 = 0x1
+        STPM1 = 0x1,
+        STPM2 = 0x2
     }
 
     export enum RGB {
@@ -616,18 +616,40 @@ namespace MSP_Rover {
         }
     }
 	
-	//% blockId=stepper block="stepper degree %degree" group="步进电机"
+	//% blockId=stepper block="stepper |%index | degree %degree" group="步进电机"
     //% weight=78
     //% blockGap=50
     //% subcategory="Rover_执行器"
-    export function stepper(degree: number): void {
+    export function stepper(index: Steppers, degree: number): void {
         if (!initialized) {
             initPCA9685()
         }
-        setPwm(0, 0, 1023);
-		setPwm(2, 1023, 2047);
-		setPwm(1, 2047, 3071);
-		setPwm(3, 3071, 4095);
+        if (index == 0x01) {
+            if(degree > 0) {
+                setPwm(0, 0, 1023);
+                setPwm(2, 1023, 2047);
+                setPwm(1, 2047, 3071);
+                setPwm(3, 3071, 4095);               
+            } else {
+                setPwm(3, 0, 1023);
+                setPwm(1, 1023, 2047);
+                setPwm(2, 2047, 3071);
+                setPwm(0, 3071, 4095); 
+            }
+        } else {
+            if(degree > 0) {
+                setPwm(4, 0, 1023);
+                setPwm(6, 1023, 2047);
+                setPwm(5, 2047, 3071);
+                setPwm(7, 3071, 4095);               
+            } else {
+                setPwm(7, 0, 1023);
+                setPwm(5, 1023, 2047);
+                setPwm(6, 2047, 3071);
+                setPwm(4, 3071, 4095); 
+            }
+        }
+        
 		degree = Math.abs(degree);
         basic.pause(10240 * degree / 360 / 8);
         MotorStopAll();
